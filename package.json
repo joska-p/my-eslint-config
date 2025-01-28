@@ -2,6 +2,7 @@
   "name": "@jpotin/my-eslint-config",
   "description": "A collection of internal eslint configurations.",
   "license": "MIT",
+  "private": false,
   "version": "1.0.0",
   "type": "module",
   "exports": {
