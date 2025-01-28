@@ -1,6 +1,8 @@
 {
   "name": "@jpotin/my-eslint-config",
   "description": "A collection of internal eslint configurations.",
+  "author": "jpotin",
+  "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
   "version": "1.0.0",
