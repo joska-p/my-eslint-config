@@ -5,13 +5,13 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "exports": {
     "./base": "./base.js",
     "./react": "./react.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@eslint/js": "^9.19.0",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
