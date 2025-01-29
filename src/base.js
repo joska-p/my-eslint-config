@@ -29,7 +29,7 @@ export default tseslint.config(
   {
     rules: {
       "no-console": "warn",
-      "no-unused-vars": "warn",
+      "no-unused-vars": "off", // handled by typescript
       "import/order": [
         "error",
         {
@@ -44,5 +44,5 @@ export default tseslint.config(
   },
   {
     ignores: ["dist/**"],
-  },
+  }
 );
