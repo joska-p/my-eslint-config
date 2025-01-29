@@ -1,28 +1,21 @@
 import eslint from "@eslint/js";
-import importPlugin from "eslint-plugin-import";
 import eslintConfigPrettier from "eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
 
 /**
  * A shared ESLint configuration for the repository.
  *
- * @type {import("eslint").Linter.Config}
+ * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
  * */
 export default tseslint.config(
   eslint.configs.recommended,
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
+  tseslint.configs.strict,
+  tseslint.configs.stylistic,
   eslintConfigPrettier,
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
-  },
+
   {
     settings: {
       "import/resolver": {
@@ -51,5 +44,5 @@ export default tseslint.config(
   },
   {
     ignores: ["dist/**"],
-  }
+  },
 );
