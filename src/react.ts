@@ -1,5 +1,4 @@
-import eslint from "@eslint/js";
-import eslintConfigPrettier from "eslint-config-prettier";
+import baseConfig from "./base.js";
 import tseslint from "typescript-eslint";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import pluginReact from "eslint-plugin-react";
@@ -7,12 +6,11 @@ import globals from "globals";
 
 /**
  * A custom ESLint configuration for libraries that use React.
- **/
+ *
+ * @type {import("eslint").Linter.Config}
+ * */
 export default tseslint.config(
-  eslint.configs.recommended,
-  tseslint.configs.recommended,
-  tseslint.configs.stylistic,
-  eslintConfigPrettier,
+  baseConfig,
   pluginReact.configs.flat.recommended,
   {
     languageOptions: {
