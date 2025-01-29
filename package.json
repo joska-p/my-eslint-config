@@ -5,7 +5,7 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "exports": {
     "./base": "./dist/base.js",
@@ -20,13 +20,16 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-compiler": "^19.0.0-beta-27714ef-20250124",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.22.0"
   },
   "devDependencies": {
-    "@types/eslint-config-prettier": "^6.11.3"
+    "@types/eslint-config-prettier": "^6.11.3",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0"
   }
 }
