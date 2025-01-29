@@ -1,16 +1,15 @@
-import js from "@eslint/js";
+import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import tseslint from "typescript-eslint";
 
 /**
  * A shared ESLint configuration for the repository.
- *
- * @type {import("eslint").Linter.Config}
- * */
-export const config = [
-  js.configs.recommended,
+ **/
+export default tseslint.config(
+  eslint.configs.recommended,
+  tseslint.configs.recommended,
+  tseslint.configs.stylistic,
   eslintConfigPrettier,
-  ...tseslint.configs.recommended,
   {
     rules: {
       "no-console": "warn",
@@ -19,5 +18,5 @@ export const config = [
   },
   {
     ignores: ["dist/**"],
-  },
-];
+  }
+);

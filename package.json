@@ -5,11 +5,11 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "exports": {
-    "./base": "./base.js",
-    "./react": "./react.js"
+    "./base": "./base.mjs",
+    "./react": "./react.mjs"
   },
   "dependencies": {
     "@eslint/js": "^9.19.0",
