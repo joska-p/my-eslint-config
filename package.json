@@ -5,7 +5,7 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "exports": {
     "./base": "./dist/base.js",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/eslint-plugin-jsx-a11y": "^6.10.0"
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
+    "@types/node": "^22.12.0"
   }
 }

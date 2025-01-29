@@ -1,4 +1,5 @@
 import eslint from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
 import eslintConfigPrettier from "eslint-config-prettier";
 import tseslint from "typescript-eslint";
 /**
@@ -6,10 +7,29 @@ import tseslint from "typescript-eslint";
  *
  * @type {import("eslint").Linter.Config}
  * */
-export default tseslint.config(eslint.configs.recommended, tseslint.configs.strictTypeChecked, tseslint.configs.stylisticTypeChecked, eslintConfigPrettier, {
+export default tseslint.config(eslint.configs.recommended, importPlugin.flatConfigs.recommended, importPlugin.flatConfigs.typescript, tseslint.configs.strictTypeChecked, tseslint.configs.stylisticTypeChecked, eslintConfigPrettier, {
+    settings: {
+        "import/resolver": {
+            typescript: {
+                alwaysTryTypes: true,
+                project: "./tsconfig.json",
+            },
+        },
+    },
+}, {
     rules: {
         "no-console": "warn",
         "no-unused-vars": "warn",
+        "import/order": [
+            "error",
+            {
+                groups: ["builtin", "external", "parent", "sibling", "index"],
+                alphabetize: {
+                    order: "asc",
+                },
+            },
+        ],
+        "import/no-named-as-default-member": "off",
     },
 }, {
     ignores: ["dist/**"],

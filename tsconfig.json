@@ -2,10 +2,14 @@
   "compilerOptions": {
     "declaration": true,
     "target": "ESNext",
+    "lib": ["es2022", "DOM", "DOM.Iterable"],
     "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "moduleDetection": "force",
     "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "rootDirs": ["./src"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

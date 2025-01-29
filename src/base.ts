@@ -16,6 +16,14 @@ export default tseslint.config(
   tseslint.configs.stylisticTypeChecked,
   eslintConfigPrettier,
   {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
+  {
     settings: {
       "import/resolver": {
         typescript: {
