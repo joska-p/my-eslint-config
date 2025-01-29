@@ -19,7 +19,7 @@ export default tseslint.config(eslint.configs.recommended, importPlugin.flatConf
 }, {
     rules: {
         "no-console": "warn",
-        "no-unused-vars": "warn",
+        "no-unused-vars": "off", // handled by typescript
         "import/order": [
             "error",
             {
