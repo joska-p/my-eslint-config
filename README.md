@@ -33,10 +33,29 @@ Alternatively, you can specify the configuration in your <code>package.json</cod
 
 ## Configuration
 
-The exported configuration includes the following rules:
+The package export 2 configurations:
 
-- no-console: Warn when using console.log() statements
-- no-unused-vars: Error when declaring unused variables
+### Base configuration
+
+The base configuration includes the following rules:
+
+- <code>no-console</code>: Warn when using console.log() statements
+
+- <code>no-unused-vars</code>: Disables this rule, as it is handled by TypeScript.
+
+- <code>import/order</code>: Enforces a consistent ordering of imports, with built-in modules first, followed by external modules, parent modules, sibling modules, and index modules.
+
+### React Configuration
+
+The React configuration extends the base configuration and adds the following rules:
+
+- <code>react</code>: Enables the React plugin.
+
+- <code>react-hooks:</code> Enables the React hooks plugin.
+
+- <code>jsx-a11y</code>: Enables the jsx-a11y plugin.
+
+- <code>react-compiler</code>: Enables this rule with an error severity.
 
 You can customize or extend this configuration by creating your own <code>.eslintrc.config.mjs</code> file in your project and overriding the rules as needed.
 
