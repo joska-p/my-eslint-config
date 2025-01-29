@@ -12,8 +12,8 @@ export default tseslint.config(
   eslint.configs.recommended,
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
+  tseslint.configs.strict,
+  tseslint.configs.stylistic,
   eslintConfigPrettier,
   {
     languageOptions: {
