@@ -5,11 +5,11 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.0.10",
+  "version": "1.0.11",
   "type": "module",
   "exports": {
-    "./base": "./src/base.ts",
-    "./react": "./src/react.ts"
+    "./base": "./dist/base.js",
+    "./react": "./dist/react.js"
   },
   "scripts": {
     "build": "rm -rf dist && tsc"
