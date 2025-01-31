@@ -4,13 +4,21 @@ import reactCompiler from "eslint-plugin-react-compiler";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import baseConfig from "./base.js";
-/**
- * A custom ESLint configuration for libraries that use React.
- *
- * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
- * */
-export default tseslint.config(baseConfig, pluginReact.configs.flat.recommended, jsxA11y.flatConfigs.recommended, {
+import baseConfig from "./baseConfig.js";
+const jsxA11yConfig = tseslint.config({
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    extends: [jsxA11y.flatConfigs.recommended],
+    languageOptions: {
+        ...jsxA11y.flatConfigs.recommended.languageOptions,
+        globals: {
+            ...globals.serviceworker,
+            ...globals.browser,
+        },
+    },
+});
+const reactConfig = tseslint.config({
+    files: ["**/*.{js,jsx,ts,tsx}"],
+    extends: [pluginReact.configs.flat.recommended],
     languageOptions: {
         ...pluginReact.configs.flat.recommended.languageOptions,
         globals: {
@@ -18,7 +26,6 @@ export default tseslint.config(baseConfig, pluginReact.configs.flat.recommended,
             ...globals.browser,
         },
     },
-}, {
     plugins: {
         "react-hooks": pluginReactHooks,
         "react-compiler": reactCompiler,
@@ -30,6 +37,10 @@ export default tseslint.config(baseConfig, pluginReact.configs.flat.recommended,
         "react/react-in-jsx-scope": "off",
         "react-compiler/react-compiler": "error",
     },
-}, {
-    ignores: ["dist/**"],
 });
+/**
+ * A custom ESLint configuration for libraries that use React.
+ *
+ * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
+ * */
+export default tseslint.config(baseConfig, jsxA11yConfig, reactConfig);

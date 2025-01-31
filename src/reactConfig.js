@@ -4,14 +4,23 @@ import reactCompiler from "eslint-plugin-react-compiler";
 import pluginReactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-import baseConfig from "./base.js";
+import baseConfig from "./baseConfig.js";
+
+const jsxA11yConfig = tseslint.config({
+  files: ["**/*.{js,jsx,ts,tsx}"],
+  extends: [jsxA11y.flatConfigs.recommended],
+  languageOptions: {
+    ...jsxA11y.flatConfigs.recommended.languageOptions,
+    globals: {
+      ...globals.serviceworker,
+      ...globals.browser,
+    },
+  },
+});
 
 const reactConfig = tseslint.config({
   files: ["**/*.{js,jsx,ts,tsx}"],
-  extends: [
-    pluginReact.configs.flat.recommended,
-    jsxA11y.flatConfigs.recommended,
-  ],
+  extends: [pluginReact.configs.flat.recommended],
   languageOptions: {
     ...pluginReact.configs.flat.recommended.languageOptions,
     globals: {
@@ -37,4 +46,4 @@ const reactConfig = tseslint.config({
  *
  * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
  * */
-export default tseslint.config(baseConfig, reactConfig);
+export default tseslint.config(baseConfig, jsxA11yConfig, reactConfig);

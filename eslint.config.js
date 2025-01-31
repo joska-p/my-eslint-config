@@ -1,6 +1,6 @@
-import config from "./src/base.js";
+import baseConfig from "./src/baseConfig.js";
 
 /**
  * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
  * */
-export default config;
+export default baseConfig;
