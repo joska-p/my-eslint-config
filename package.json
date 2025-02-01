@@ -5,7 +5,7 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "type": "module",
   "exports": {
     "./baseConfig": "./dist/baseConfig.js",
@@ -14,6 +14,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:inspect": "eslint --inspect-config ",
     "format": "prettier --write .",
     "fix": "pnpm run lint:fix && pnpm run format",
     "prebuild": "rm -rf dist",

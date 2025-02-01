@@ -1,13 +1,13 @@
 import jsxA11y from "eslint-plugin-jsx-a11y";
-import pluginReact from "eslint-plugin-react";
+import reactPlugin from "eslint-plugin-react";
 import reactCompiler from "eslint-plugin-react-compiler";
-import pluginReactHooks from "eslint-plugin-react-hooks";
+import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import baseConfig from "./baseConfig.js";
 const jsxA11yConfig = tseslint.config({
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    extends: [jsxA11y.flatConfigs.recommended],
+    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    ...jsxA11y.flatConfigs.recommended,
     languageOptions: {
         ...jsxA11y.flatConfigs.recommended.languageOptions,
         globals: {
@@ -17,24 +17,24 @@ const jsxA11yConfig = tseslint.config({
     },
 });
 const reactConfig = tseslint.config({
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    extends: [pluginReact.configs.flat.recommended],
+    files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],
+    extends: [
+        reactPlugin.configs.flat.recommended,
+        reactPlugin.configs.flat["jsx-runtime"],
+    ],
     languageOptions: {
-        ...pluginReact.configs.flat.recommended.languageOptions,
+        ...reactPlugin.configs.flat.recommended.languageOptions,
         globals: {
             ...globals.serviceworker,
             ...globals.browser,
         },
     },
     plugins: {
-        "react-hooks": pluginReactHooks,
+        "react-hooks": reactHooks,
         "react-compiler": reactCompiler,
     },
     settings: { react: { version: "detect" } },
     rules: {
-        ...pluginReactHooks.configs.recommended.rules,
-        // React scope no longer necessary with new JSX transform.
-        "react/react-in-jsx-scope": "off",
         "react-compiler/react-compiler": "error",
     },
 });
