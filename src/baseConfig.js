@@ -40,9 +40,10 @@ export default tseslint.config(
         },
       ],
       "import/no-named-as-default-member": "off",
+      "import/no-unresolved": "off", // handled by typescript
     },
   },
   {
     ignores: ["dist/**"],
-  },
+  }
 );

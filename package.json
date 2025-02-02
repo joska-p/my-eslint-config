@@ -5,7 +5,7 @@
   "repository": "https://github.com/jpotin/my-eslint-config",
   "license": "MIT",
   "private": false,
-  "version": "1.1.2",
+  "version": "1.1.3",
   "type": "module",
   "exports": {
     "./baseConfig": "./dist/baseConfig.js",
