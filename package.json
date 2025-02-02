@@ -36,6 +36,7 @@
     "typescript-eslint": "^8.22.0"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.6",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "@types/node": "^22.13.0",

@@ -1,7 +1,15 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { includeIgnoreFile } from "@eslint/compat";
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
+
+// File path setup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const gitignorePath = path.resolve(__dirname, ".gitignore");
 
 /**
  * A shared ESLint configuration for the repository.
@@ -9,6 +17,7 @@ import tseslint from "typescript-eslint";
  * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
  * */
 export default tseslint.config(
+  includeIgnoreFile(gitignorePath),
   eslint.configs.recommended,
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
@@ -42,8 +51,5 @@ export default tseslint.config(
       "import/no-named-as-default-member": "off",
       "import/no-unresolved": "off", // handled by typescript
     },
-  },
-  {
-    ignores: ["dist/**"],
   }
 );
