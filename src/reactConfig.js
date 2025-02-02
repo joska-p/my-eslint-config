@@ -5,6 +5,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import baseConfig from "./baseConfig.js";
+export { tseslint };
 
 const jsxA11yConfig = tseslint.config({
   files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}"],

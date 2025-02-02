@@ -5,6 +5,7 @@ import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
 import importPlugin from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
+export { tseslint };
 
 // File path setup
 const __filename = fileURLToPath(import.meta.url);
